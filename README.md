@@ -446,6 +446,8 @@ Cycle complete.
 Gate: CLOSED
 ```
 
+### Stretch goals
+- Add more algorithms or data structure examples when finished with the 15 coding examples.
 
 ### Required
 
