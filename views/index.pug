@@ -1,5 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h3 Enter a number between 1 and 100
+  form(method='GET' action='/')
+    label(for='guess') Guess:
+    input(type='text', placeholder='1 to 100', name='guess', autofocus)
+    button(type='submit') Enter
+  form(method='GET' action='/')
+    input(type='text', name='exit', value='exit', hidden)
+    button(type='submit', value='exit') Start Over
+    .previous-attempts
+      - for (let i = 0; i < attempts.length; i+=2)
+        span #{attempts[i]} &nbsp; #{attempts[i+1]}
+        br
