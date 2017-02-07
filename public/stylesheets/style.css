@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+.previous-attempts > h5 {
+  /*display: inline-block;*/
+  margin-left: 2%;
+}
+form {
+  display: inline
+}
