@@ -7,7 +7,7 @@ describe('NumberGuesser', function() {
     expect(numberGuesser.answer).to.be.within(1, 100)
     expect(numberGuesser.guesses).to.be.an('array')
   })
-  describe('#attempt()', function() {
+  describe('#attempt(guess)', function() {
     it('should push guesses and #compare() results into @guesses', function() {
       numberGuesser.clear()
       numberGuesser.answer = 50
@@ -38,7 +38,7 @@ describe('NumberGuesser', function() {
     })
   })
 
-  describe('#compare()', function() {
+  describe('#compare(guess)', function() {
     let compareResponse
     it('should simply return if parameter is "exit"', function() {
       compareResponse = numberGuesser.compare('exit')
