@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h2 Scrabble Tile Counter
+  form(method='GET' action='/scrabbleBag')
+    label(for='playedLetters') Enter Used Tiles:
+    input(type='text', placeholder='1 to 100', name='playedLetters', autofocus)
+    button(type='submit') Enter
+  h2 Leftover Tiles
+  for error in errors
+    .row
+    h4= error
+    br
+  for result in results
+    -let numberOfLetters = result.shift()
+    -numberOfLetters = `0${numberOfLetters}`.slice(-4)
+    .row
+    h4= numberOfLetters
+    h4= result

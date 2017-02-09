@@ -7,10 +7,14 @@ a {
   color: #00B7FF;
 }
 
-.previous-attempts > h5 {
-  /*display: inline-block;*/
-  margin-left: 2%;
+h4 {
+  display: inline;
+  margin-right: 1%;
 }
+
 form {
-  display: inline
+  display: inline;
+}
+.row {
+  margin: 3px;
 }
