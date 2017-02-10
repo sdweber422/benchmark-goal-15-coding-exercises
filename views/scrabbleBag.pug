@@ -4,7 +4,7 @@ block content
   h2 Scrabble Tile Counter
   form(method='GET' action='/scrabbleBag')
     label(for='playedLetters') Enter Used Tiles:
-    input(type='text', placeholder='1 to 100', name='playedLetters', autofocus)
+    input(type='text', placeholder='Letters, Numbers, Symbols, it makes no difference', name='playedLetters', autofocus)
     button(type='submit') Enter
   h2 Leftover Tiles
   for error in errors

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const numberGuesser = require('../public/javascripts/NumberGuesser')
 const ScrabbleBag = require('../public/javascripts/ScrabbleBag')
+const StringIndices = require('../public/javascripts/StringIndices')
 
 /* GET home page. */
 router.get('/', function(request, response, next) {
@@ -20,4 +21,16 @@ router.get('/scrabbleBag', function(request, response, next) {
   response.render('scrabbleBag', { results: scrabbleBag.displayTiles(), errors: scrabbleBag.error() })
 })
 
+router.get('/stringIndices', function(request, response, next) {
+  const { stringToParse, index } = request.query
+  const stringEntry = new StringIndices(stringToParse)
+  const wordAtPosition = stringEntry.getWordAtIndex(index)
+  response.render('stringIndices', {
+    stringToParse: stringToParse,
+    returnedWord: wordAtPosition,
+    index: index
+  })
+})
+
 module.exports = router;
+``
