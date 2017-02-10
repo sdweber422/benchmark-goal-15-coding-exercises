@@ -6,13 +6,16 @@ describe('StringIndices', function() {
   beforeEach(function(){
    stringTest = new StringIndices('Please, help yourself to some')
   })
- 
+
   describe('.parseString(String)', function() {
     it('should return an array of words which were separated by spaces in the given string', function() {
       expect(StringIndices.parseString('Please, help yourself to some')).to.eql(['Please,', 'help', 'yourself', 'to', 'some'])
     })
-    it('should return an array with an empty string if no string is given', function() {
-      expect(StringIndices.parseString()).to.eql([''])
+    it('should disregard extra spaces between words', function() {
+      expect(StringIndices.parseString('A   space    exists')).to.eql(['A', 'space', 'exists'])
+    })
+    it('should return an empty array if no string is given', function() {
+      expect(StringIndices.parseString()).to.eql([])
     })
   })
   describe('#getWordAtIndex', function() {

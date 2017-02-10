@@ -5,7 +5,7 @@ class StringIndices {
   }
 
   static parseString(stringToParse='') {
-    return stringToParse.split(' ')
+    return stringToParse.split(' ').filter(word => word !== '')
   }
 
   getWordAtIndex(index=0) {
