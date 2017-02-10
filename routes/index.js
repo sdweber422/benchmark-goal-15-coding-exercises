@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const numberGuesser = require('../public/javascripts/NumberGuesser')
 const ScrabbleBag = require('../public/javascripts/ScrabbleBag')
+const FibonacciBase = require('../public/javascripts/FibonacciBase')
 
 /* GET home page. */
 router.get('/', function(request, response, next) {
@@ -20,4 +21,18 @@ router.get('/scrabbleBag', function(request, response, next) {
   response.render('scrabbleBag', { results: scrabbleBag.displayTiles(), errors: scrabbleBag.error() })
 })
 
+router.get('/fibonacci', function(request, response, next) {
+  let { decimalValue, fibonacciBase } = request.query
+  let fibonacciInstance = new FibonacciBase()
+  if(decimalValue) {
+    decimalValue = fibonacciInstance.decimalToFibonacci(decimalValue)
+  }
+  if(fibonacciBase) {
+    fibonacciBase = fibonacciInstance.fibonacciToDecimal(fibonacciBase)
+  }
+  response.render('fibonacci', {
+    decimalValue: decimalValue,
+    fibonacciBase: fibonacciBase
+  })
+})
 module.exports = router;
