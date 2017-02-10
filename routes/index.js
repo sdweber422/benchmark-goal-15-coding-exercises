@@ -3,6 +3,7 @@ const router = express.Router();
 const numberGuesser = require('../public/javascripts/NumberGuesser')
 const ScrabbleBag = require('../public/javascripts/ScrabbleBag')
 const StringIndices = require('../public/javascripts/StringIndices')
+const disemvoweling = require('../public/javascripts/disemvoweling')
 
 /* GET home page. */
 router.get('/', function(request, response, next) {
@@ -29,6 +30,15 @@ router.get('/stringIndices', function(request, response, next) {
     stringToParse: stringToParse,
     returnedWord: wordAtPosition,
     index: index
+  })
+})
+
+router.get('/disemvoweling', function(request, response, next) {
+  const { regexString } = request.query
+  const parsedString = disemvoweling(regexString)
+  response.render('disemvoweling', {
+    parsedString: parsedString,
+    originalString: regexString
   })
 })
 
