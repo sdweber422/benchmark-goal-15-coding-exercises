@@ -3,6 +3,7 @@ const router = express.Router();
 const numberGuesser = require('../public/javascripts/NumberGuesser')
 const ScrabbleBag = require('../public/javascripts/ScrabbleBag')
 const FibonacciBase = require('../public/javascripts/FibonacciBase')
+const StringIndices = require('../public/javascripts/StringIndices')
 
 /* GET home page. */
 router.get('/', function(request, response, next) {
@@ -35,4 +36,17 @@ router.get('/fibonacci', function(request, response, next) {
     fibonacciBase: fibonacciBase
   })
 })
+
+router.get('/stringIndices', function(request, response, next) {
+  const { stringToParse, index } = request.query
+  const stringEntry = new StringIndices(stringToParse)
+  const wordAtPosition = stringEntry.getWordAtIndex(index)
+  response.render('stringIndices', {
+    stringToParse: stringToParse,
+    returnedWord: wordAtPosition,
+    index: index
+  })
+})
+
 module.exports = router;
+``
