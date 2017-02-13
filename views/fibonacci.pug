@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h3 Enter a decimal to convert to Fibonacci Base
+  form(method='GET' action='/fibonacci')
+    label(for='decimalValue') Decimal Value:
+    input(type='text', name='decimalValue', autofocus)
+    button(type='submit') DecimalToFibonacci
+  form(method='GET' action='/fibonacci')
+    label(for='fibonacciBase') Fibonacci Base:
+    input(type='text', name='fibonacciBase')
+    button(type='submit') FibonacciToDecimal
+  .row
+    h3 Decimal to Fibonacci: #{decimalValue}
+    h3 Fibonacci Base to Decimal: #{fibonacciBase}
