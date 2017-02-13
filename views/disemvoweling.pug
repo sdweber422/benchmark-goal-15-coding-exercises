@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h2 String Indices
+  form(method='GET' action='/disemvoweling')
+    label(for='regexString') Enter String To Remove spaces, special characters, vowels, and capitalization:
+    input(type='text', placeholder='Enter a string you wish to parse', name='regexString', autofocus)
+    button(type='submit') Enter
+  h3 Entered string: #{originalString}
+  h3 New string with removed characters: #{parsedString}
