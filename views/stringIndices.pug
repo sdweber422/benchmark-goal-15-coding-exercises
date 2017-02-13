@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h2 String Indices
+  form(method='GET' action='/stringIndices')
+    label(for='stringToParse') Enter String To Parse:
+    input(type='text', placeholder='Enter a string you wish to parse', name='stringToParse', autofocus)
+    .row
+    label(for='index') Enter Position Of Word You Wish Returned:
+    input(type='text', placeholder='Enter the number position of the word', name='index')
+
+    button(type='submit') Enter
+  h2 Word at position
+  h3 Entered string: #{stringToParse}
+  h3 Word at position #{index}: #{returnedWord}
